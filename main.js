@@ -44,8 +44,10 @@ validateCred = (array) => {
         const summedNums = tempArray.reduce((accumulator,currentValue) => {
             return accumulator + currentValue});
         if (summedNums % 10 === 0) {
+            console.log('Credit card is valid!')
             return true;
         }else{
+            console.log('Sorry, your credit card for some reason is invalid.')
             return false;
         };
     }else{
@@ -64,8 +66,10 @@ validateCred = (array) => {
         const summedNums = tempArray.reduce((accumulator,currentValue) => {
             return accumulator + currentValue});
         if (summedNums % 10 === 0) {
+            console.log('Credit card is valid!')
             return true;
         }else{
+            console.log('Sorry, your credit card for some reason is invalid.')
             return false;
         };
     };
@@ -89,39 +93,44 @@ findInvalidCards = (nestedArray) => {
 
 /*----------------------------Invalid Card Companies ---------------------*/
 
-idInvalidCards = (corruptArray) => {
+idInvalidCards = (array, insBatch, corruptArray) => {
  // Turn this to a comment below to turn off
-    findInvalidCards(batch);
+
+    if (array && !insBatch && !corruptArray) {
+        validateCred(array);
+    }else if(insBatch && !array && !corruptArray) {
+        findInvalidCards(batch);
+    }else {
     let newArray = [];
     let invalidArray = [];
-    for (const array of corruptArray){
-        if(validateCred(array) !== true){
-            newArray.push(array);
-        }else{
-            continue;
+        for (const array of corruptArray){
+            if(validateCred(array) !== true){
+                newArray.push(array);
+            }else{
+                continue;
+            };
         };
-    };
-    for (let i = 0; i <= newArray.length-1; i++){
-        switch(newArray[i][0]){
-            case 3:
-                invalidArray.push('Amex (American Express)');
-                break;
-            case 4:
-                invalidArray.push('Visa');
-                break;
-            case 5:
-                invalidArray.push('Mastercard');
-                break;
-            case 6:
-                invalidArray.push('Discover');
-                break;
-            default:
-                console.log('Company not found');
-                break;   
+        for (let i = 0; i <= newArray.length-1; i++){
+            switch(newArray[i][0]){
+                case 3:
+                    invalidArray.push('Amex (American Express)');
+                    break;
+                case 4:
+                    invalidArray.push('Visa');
+                    break;
+                case 5:
+                    invalidArray.push('Mastercard');
+                    break;
+                case 6:
+                    invalidArray.push('Discover');
+                    break;
+                default:
+                    console.log('Company not found');
+                    break;   
+            };
         };
+        console.log(invalidArray.filter((value,index) => invalidArray.indexOf(value) === index));
     };
-    console.log(invalidArray.filter((value,index) => invalidArray.indexOf(value) === index));
-
 };
 
-idInvalidCards(batch);
+idInvalidCards(mystery2);
