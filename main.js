@@ -85,11 +85,13 @@ findInvalidCards = (nestedArray) => {
     console.log(cardList);
 };
 
-/*findInvalidCards(batch)*/;
+//findInvalidCards(batch)
 
 /*----------------------------Invalid Card Companies ---------------------*/
 
 idInvalidCards = (corruptArray) => {
+ // Turn this to a comment below to turn off
+    findInvalidCards(batch);
     let newArray = [];
     let invalidArray = [];
     for (const array of corruptArray){
@@ -99,7 +101,6 @@ idInvalidCards = (corruptArray) => {
             continue;
         };
     };
-    /*console.log(newArray);*/
     for (let i = 0; i <= newArray.length-1; i++){
         switch(newArray[i][0]){
             case 3:
