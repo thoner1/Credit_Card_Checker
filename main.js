@@ -44,10 +44,8 @@ validateCred = (array) => {
         const summedNums = tempArray.reduce((accumulator,currentValue) => {
             return accumulator + currentValue});
         if (summedNums % 10 === 0) {
-            console.log('Credit card is valid!')
             return true;
         }else{
-            console.log('Sorry, your credit card for some reason is invalid.')
             return false;
         };
     }else{
@@ -66,10 +64,8 @@ validateCred = (array) => {
         const summedNums = tempArray.reduce((accumulator,currentValue) => {
             return accumulator + currentValue});
         if (summedNums % 10 === 0) {
-            console.log('Credit card is valid!')
             return true;
         }else{
-            console.log('Sorry, your credit card for some reason is invalid.')
             return false;
         };
     };
@@ -95,7 +91,11 @@ idInvalidCards = (array, insBatch, corruptArray) => {
  // Turn this to a comment below to turn off
 
     if (array && !insBatch && !corruptArray) {
-        validateCred(array);
+        if(validateCred(array) === true) {
+            console.log('Credit card is valid!')
+        }else {
+            console.log('Sorry, your credit card for some reason is invalid.')
+        }
     }else if(insBatch && !array && !corruptArray) {
         findInvalidCards(batch);
     }else {
@@ -131,5 +131,5 @@ idInvalidCards = (array, insBatch, corruptArray) => {
     };
 };
 
-idInvalidCards(null, null, batch);
+idInvalidCards(invalid1);
 
