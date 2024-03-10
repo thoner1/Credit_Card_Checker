@@ -89,8 +89,6 @@ findInvalidCards = (nestedArray) => {
     console.log(cardList);
 };
 
-//findInvalidCards(batch)
-
 /*----------------------------Invalid Card Companies ---------------------*/
 
 idInvalidCards = (array, insBatch, corruptArray) => {
