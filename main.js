@@ -131,5 +131,5 @@ idInvalidCards = (array, insBatch, corruptArray) => {
     };
 };
 
-idInvalidCards(valid1);
+idInvalidCards(null, null, batch);
 
